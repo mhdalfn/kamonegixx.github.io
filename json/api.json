@@ -1,0 +1,175 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Dokumentasi API crudcrud.com",
+    "description": "API ini memandu pengguna dalam menggunakan API CRUDCRUD. CRUDCRUD.com merupakan platform yang menyediakan layanan API untuk operasi CRUD (Create, Read, Update, Delete) pada data melalui antarmuka RESTful yang sederhana. Dokumentasi ini dikembangkan oleh Alfian. Hubungi Alfian untuk informasi lebih lanjut.",
+    "version": "1.0.0"
+  },
+  "host": "crudcrud.com",
+  "basePath": "/api/aff92c92cc174b26a469fd76f1ece6f9",
+  "schemes": [
+    "https"
+  ],
+  "tags": [
+    {
+      "name": "Buku",
+      "description": "API untuk mengambil data buku"
+    }
+  ],
+  "paths": {
+    "/buku": {
+      "post": {
+        "tags": [
+          "Buku"
+        ],
+        "summary": "Menambahkan Buku",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Berhasil menambahkan data buku"
+          },
+          "400": {
+            "description": "Gagal menambahkan buku"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Buku",
+            "required": true,
+            "in": "body",
+            "description": "menambahkan buku",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nama": {
+                  "type": "string",
+                  "example": "Laskar Pelangi"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Buku"
+        ],
+        "summary": "Daftar Buku",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sukses"
+          },
+          "404": {
+            "description": "Data tidak ditemukan"
+          }
+        }
+      }
+    },
+    "/buku/{id}": {
+      "get": {
+        "tags": [
+          "Buku"
+        ],
+        "summary": "Lihat detail Buku",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sukses"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "id Buku",
+            "type": "string"
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Buku"
+        ],
+        "summary": "Ubah data buku",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Berhasil mengubah data"
+          },
+          "400": {
+            "description": "bad request"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "id buku",
+            "type": "string"
+          },
+          {
+            "name": "Buku",
+            "required": true,
+            "in": "body",
+            "description": "mengubah buku",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nama": {
+                  "type": "string",
+                  "example": "Laskar Pelangi"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Buku"
+        ],
+        "summary": "Hapus Buku",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Berhasil menghapus buku"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "404": {
+            "description": "Buku tidak ditemukan"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "id Buku",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  }
+}
